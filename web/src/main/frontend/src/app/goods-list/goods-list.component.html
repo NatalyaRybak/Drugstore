@@ -1,0 +1,137 @@
+<!--<div class="list-container" fxLayout="row">-->
+<!--  <app-filters-panel fxLayout="column" fxFlex="1 1 20%"></app-filters-panel>-->
+<!--  <app-filters-panel></app-filters-panel>-->
+<!--<div class="right-column" fxLayout="column" fxFlex="3 1 80%">-->
+
+<!--<div class="cardList" fxLayout="row wrap" fxLayoutGap="30px" *ngFor="let good of goods">-->
+<!--    <mat-card class="cardListItem" fxLayout="row" fxFlex="1 1 30%" [routerLink]="['/goods',good.id]">-->
+<!--      <div class="good-card-photo" fxLayout="column" fxFlex="1 1 29%">-->
+<!--&lt;!&ndash;        <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">&ndash;&gt;-->
+<!--        <img mat-card-sm-image src="{{good.photo}}">-->
+<!--      </div>-->
+<!--      <div fxLayout="column" fxFlex="1 1 69%">-->
+<!--        <div fxLayout="row">{{good.name}}</div>-->
+<!--        <div class="spacer" fxLayout="row"></div>-->
+<!--        <div fxLayout="row">-->
+<!--          <div fxLayout="column" fxFlex="1 1 80%">${{good.price}}</div>-->
+<!--          <div fxLayout="column" fxFlex="1 1 20%">-->
+<!--            <mat-icon class="shopping-cart-icon">shopping_cart</mat-icon>-->
+<!--          </div>-->
+<!--          </div>-->
+<!--      </div>-->
+<!--    </mat-card>-->
+<!--  </div>-->
+
+<app-filters-panel fxLayout="column" fxFlex="1 1 15%"></app-filters-panel>
+<div class="right-column" fxLayout="column" fxFlex="1 1 80%">
+<div
+  class="list-container"
+  fxLayout="row wrap"
+  fxLayout.lt-sm="column"
+  fxLayoutGap="10px"
+  fxLayoutAlign="flex-start">
+  <ng-container class="cardList" *ngFor="let good of goods">
+    <mat-card
+      class="cardListItem"
+      fxFlex="0 1 calc(30% - 10px)"
+      fxFlex.lt-md="0 1 calc(50% - 10px)"
+      fxFlex.lt-sm="100%">
+      <div class="good-card-photo" fxLayout="column" fxFlex="1 1 29%" [routerLink]="['/goods',good.id]">
+        <img mat-card-sm-image src="{{good.photo}}">
+      </div>
+      <div fxLayout="column" fxFlex="1 1 69%">
+        <div fxLayout="row">{{good.name}}</div>
+        <div class="spacer" fxLayout="row"></div>
+        <div fxLayout="row">
+          <div fxLayout="column" fxFlex="1 1 80%">${{good.price}}</div>
+          <div fxLayout="column" fxFlex="1 1 20%">
+            <mat-icon class="shopping-cart-icon">shopping_cart</mat-icon>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </ng-container>
+</div>
+</div>
+
+
+
+
+
+
+
+<!--  <ng-container *ngFor="let good of goods">-->
+<!--      <mat-card class="cardListItem" fxFlex="0 1 calc(33.3% - 32px)">-->
+<!--        <span class="example-spacer"></span>-->
+<!--        <mat-card-header>-->
+<!--          &lt;!&ndash;             <img mat-card-avatar src="{{good.photo}}">&ndash;&gt;-->
+<!--          <mat-card-title>-->
+<!--            {{good.name}}-->
+<!--          </mat-card-title>-->
+<!--          <mat-card-subtitle>-->
+<!--            ${{good.price}}-->
+<!--          </mat-card-subtitle>-->
+<!--          <span class="example-spacer"></span>-->
+<!--          <img mat-card-sm-image src="{{good.photo}}">-->
+<!--        </mat-card-header>-->
+<!--        <mat-card-actions>-->
+<!--          <mat-icon class="shopping-cart-icon">shopping_cart</mat-icon>-->
+<!--        </mat-card-actions>-->
+<!--      </mat-card>-->
+<!--  </ng-container>-->
+<!--</div>-->
+<!--<p class="info-text mat-body-2" *ngIf="goods.length <= 0">No Goods Yet</p>-->
+
+
+
+<!--<mat-grid-list cols="2" rowHeight="2:1">-->
+<!--  <div class="cardList" >-->
+<!--    <ng-container *ngFor="let good of goods">-->
+<!--     <mat-grid-tile>-->
+<!--       <mat-card class="cardListItem">-->
+<!--         <span class="example-spacer"></span>-->
+<!--         <mat-card-header>-->
+<!--&lt;!&ndash;             <img mat-card-avatar src="{{good.photo}}">&ndash;&gt;-->
+<!--           <mat-card-title>-->
+<!--             {{good.name}}-->
+<!--           </mat-card-title>-->
+<!--           <mat-card-subtitle>-->
+<!--             ${{good.price}}-->
+<!--           </mat-card-subtitle>-->
+<!--           <span class="example-spacer"></span>-->
+<!--           <img mat-card-sm-image src="{{good.photo}}">-->
+
+<!--         </mat-card-header>-->
+<!--         <mat-card-actions>-->
+<!--           <mat-icon class="shopping-cart-icon">shopping_cart</mat-icon>-->
+<!--         </mat-card-actions>-->
+<!--       </mat-card>-->
+
+<!--&lt;!&ndash;       <mat-card class="cardListItem">&ndash;&gt;-->
+<!--&lt;!&ndash;           <div class="img-card">&ndash;&gt;-->
+<!--&lt;!&ndash;             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">&ndash;&gt;-->
+<!--&lt;!&ndash;           </div>&ndash;&gt;-->
+<!--&lt;!&ndash;           <div class="about-card">&ndash;&gt;-->
+<!--&lt;!&ndash;             <mat-card-title class="title-card">&ndash;&gt;-->
+<!--&lt;!&ndash;              {{good.name}}&ndash;&gt;-->
+<!--&lt;!&ndash;              &lt;!&ndash;          <a mat-raised-button color="accent" [routerLink]="['/meetup-profile',good.id]" class="edit-button">More</a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            </mat-card-title>&ndash;&gt;-->
+<!--&lt;!&ndash;            <mat-card-subtitle >&ndash;&gt;-->
+<!--&lt;!&ndash;              {{good.price}}&ndash;&gt;-->
+<!--&lt;!&ndash;            </mat-card-subtitle>&ndash;&gt;-->
+<!--&lt;!&ndash;           </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </mat-card>&ndash;&gt;-->
+<!--     </mat-grid-tile>-->
+<!--    </ng-container>-->
+<!--  </div>-->
+<!--</mat-grid-list>-->
+<!--<mat-paginator *ngIf="goods.length > 0"-->
+<!--               [length]="maxPages * goodsPerPage"-->
+<!--               [pageSize]="goodsPerPage"-->
+<!--               [pageIndex]="currentPage"-->
+<!--               [pageSizeOptions]="pageSizeOptions"-->
+<!--               (page)="onChangePage($event)"></mat-paginator>-->
+<!--<p class="info-text mat-body-2" *ngIf="goods.length <= 0">No Goods Yet</p>-->
+
+
+

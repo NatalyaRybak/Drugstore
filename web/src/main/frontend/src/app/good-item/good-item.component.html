@@ -1,0 +1,66 @@
+<!--<mat-grid-list cols="2">-->
+<!--  <mat-grid-tile>-->
+<!--    <img mat-card-lg-image src="{{good.photo}}">-->
+<!--  </mat-grid-tile>-->
+<!--  <mat-grid-tile>-->
+<!--    <mat-card>-->
+<!--      <mat-card-header>-->
+<!--        <mat-card-title>{{good.name}}</mat-card-title>-->
+<!--      </mat-card-header>-->
+<!--      <mat-card-subtitle>-->
+<!--        Manufacturer : {{good.manufacturer}}-->
+<!--      </mat-card-subtitle>-->
+<!--    </mat-card>-->
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->
+
+<div class="good-container" fxLayout="column" >
+  <div class="good-info" fxLayout="row" fxLayout.xs="column">
+    <div class="good-photo" fxLayout="column" fxLayout.xs="row" fxLayoutAlign="end center" fxFlex="1 1 50%">
+<!--      <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">-->
+      <img src="{{good.photo}}">
+<!--      img-->
+    </div>
+    <div class="good-details" fxLayout="column" fxLayout.xs="row" fxFlex="1 1 50%">
+      <p class="mat-h1">{{good.name}}</p>
+      <mat-divider></mat-divider>
+      <div fxLayout="row">
+        <p class="mat-h1" fxLayout="column" fxFlex="1 1 80%">${{good.price}}</p><p class="hint mat-small" fxLayout="column"fxFlex="1 1 20%">Available</p>
+      </div>
+      <p class="hint mat-small">Manufacturer</p>
+      <p class="item mat-h3">{{good.manufacturer}}</p>
+      <p class="hint mat-small">Active component</p>
+      <p class="item mat-h3"> {{good.activeComponents[0].name}}</p>
+      <p class="hint mat-small">Quantity</p>
+      <div fxLayout="row">
+        <input matInput type="number" formControlName="quantity" value="1" fxLayout="column" fxFlex="1 1 20%" fxLayoutGap="5%">
+        <button class="add-to-card-button" mat-raised-button fxLayout="column"fxFlex="1 1 30%">Add to card <mat-icon class="shopping-cart-icon">shopping_cart</mat-icon></button>
+      </div>
+
+    </div>
+  </div>
+  <div class="good-description" fxLayout="row" fxLayout.xs="column">
+    <div class="info-buttons" fxLayout="column" fxLayout.xs="row" fxFlex="1 1 20%">
+      <button class="info-button" mat-raised-button>Description</button>
+      <button class="info-button" mat-raised-button>Indications</button>
+      <button class="info-button" mat-raised-button>Contraindications</button>
+    </div>
+    <div class="info-area" fxLayout="column" fxLayout.xs="row" fxFlex="1 1 80%">
+      <mat-card>
+        <mat-card-title>
+          {{good.description}}
+        </mat-card-title>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<!--<div class="good-card" fxLayout="row">-->
+<!--  <div class="good-card1" fxLayout="column" fxFlex="1 1 50%"></div>-->
+<!--  <div class="good-card2" fxLayout="column" fxFlex="1 1 50%"></div>-->
+<!--</div>-->
+
+<!--<div class="good-card" fxLayout="row">-->
+<!--  <div class="good-card2" fxLayout="column" fxFlex="1 1 20%"></div>-->
+<!--  <div class="good-card1" fxLayout="column" fxFlex="1 1 80%"></div>-->
+<!--</div>-->

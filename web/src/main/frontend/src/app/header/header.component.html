@@ -1,0 +1,35 @@
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <p class="mat-display-1 shop-title">KMADrugStore</p>
+      <span class="example-spacer"></span>
+      <mat-chip-list class="shopping-card-row">
+        <mat-icon class="shopping-cart-icon">shopping_cart</mat-icon>
+        <mat-chip lass="shopping-cart-n" >3</mat-chip>
+      </mat-chip-list>
+      <div class="example-button-row">
+        <button mat-button>Sign In</button> |
+        <button mat-button>Sign Up</button>
+      </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <button mat-button routerLink="/goods">Home</button>
+      <button mat-button [matMenuTriggerFor]="catalog">Catalog</button>
+      <mat-menu #catalog="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+        <button mat-menu-item>Item 3</button>
+        <button mat-menu-item>Item 4</button>
+      </mat-menu>
+      <button mat-button>First Aid Kits</button>
+      <button mat-button>Active Component Search</button>
+      <button mat-button>Contacts</button>
+      <span class="example-spacer"></span>
+      <form class="search-form">
+        <mat-form-field class="search-field">
+          <input matInput type="search" placeholder="Search">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </form>
+    </mat-toolbar-row>
+  </mat-toolbar>
+

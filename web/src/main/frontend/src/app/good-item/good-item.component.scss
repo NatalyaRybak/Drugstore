@@ -1,0 +1,39 @@
+
+  .good-photo, .good-details {
+    padding: 5%;
+
+  }
+  .good-description{
+    padding: 0 5% 5% 5%;
+  }
+  .good-info{
+    padding: 5% 5% 0 5%;
+  }
+  img{
+  width: 200px;
+    max-height: 400px;
+    right: 0;
+  }
+  .hint{
+    font-style: italic ;
+    margin: 0;
+  }
+  .item{
+    margin: 0;
+  }
+  .info-buttons{
+    margin-right: 5%;
+  }
+  .info-button {
+    margin: 1%;
+    background-color: #666699;
+  }
+ .add-to-card-button{
+   text-align: center;
+ }
+ input{
+   border: 1px solid black;
+   padding: 1%;
+   margin-right: 5%;
+ }
+
