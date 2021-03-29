@@ -1,0 +1,38 @@
+
+<mat-spinner class = "loader" *ngIf = "isLoading"></mat-spinner>
+
+<div class="fak-wrapper"  *ngIf = "!isLoading">
+  <div class="fak-title">
+    <mat-card-title class="title">FIRST AID KIT</mat-card-title>
+    <hr />
+    <mat-card-title class="fak-name">{{kit?.title}}</mat-card-title>
+    <mat-card-subtitle class="fak-description">
+      {{kit?.description}}
+    </mat-card-subtitle>
+  </div>
+  <div class="fak-content">
+    <div class="fak-item"  *ngFor="let line of kit?.kitLines">
+      <div>
+        <mat-card-title class="cat-name" [routerLink]="['/goods',line.good.id]">{{line.good.name}}</mat-card-title>
+        <hr>
+      </div>
+      <div>
+        <mat-card-title class="cat-link"> <i>Кількість :</i> {{line.quantity}}</mat-card-title>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <div class="fak-footer">
+    <div class="fak-helper"></div>
+    <mat-card-title class="fak-price">${{kit?.price}}</mat-card-title>
+    <div class="fak-quantity">
+      <mat-form-field class="example-full-width">
+        <mat-label>Quantity</mat-label>
+        <input matInput min="1" type="number"  [(ngModel)] = "value" name="val">
+        
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onCartClick(kit)">Add to cart</button>
+    </div>
+  </div>
+</div>
+

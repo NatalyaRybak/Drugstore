@@ -1,0 +1,47 @@
+<div class="main">
+  <div class="mat-headline headline">ACCOUNT</div>
+
+  <div class="container">
+    <div id="content">
+      <div id="main-content">
+        <mat-tab-group (selectedTabChange)="checkLogOutTab($event)">
+          <mat-tab label="Personal Details">
+            <div class="personal-details">
+              <div class="mat-title" style="font-weight: normal">PERSONAL DETAILS</div>
+              <div class="pd-container">
+                <div class="info" fxLayout="row" fxLayoutAlign="space-between">
+                  <span class="field">Name</span>
+                  <span>{{user.name}}</span>
+                </div>
+                <hr />
+                <div class="info" fxLayout="row" fxLayoutAlign="space-between">
+                  <span class="field">Surname</span>
+                  <span>{{user.surname}}</span>
+                </div>
+                <hr />
+                <div class="info" fxLayout="row" fxLayoutAlign="space-between">
+                  <span class="field">Email</span>
+                  <span>{{user.email}}</span>
+                </div>
+                <hr />
+                <div class="info" fxLayout="row" fxLayoutAlign="space-between">
+                  <span class="field">Bonuses</span>
+                  <span>{{user.bonuses}}</span>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Order History" *ngIf="!isEmployee()">
+            <div class="order-history">
+              <div class="mat-title" style="font-weight: normal">ORDER HISTORY</div>
+              <app-phr-table></app-phr-table>
+            </div>
+          </mat-tab>
+          <mat-tab label="Log Out"></mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
+
+

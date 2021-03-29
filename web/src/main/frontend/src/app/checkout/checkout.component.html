@@ -1,0 +1,71 @@
+<!--<p>checkout works!</p>-->
+<div class="main-container">
+  <h2 class="mat-h2 page-header">Checkout info</h2>
+
+  <form [formGroup]="form" class="form-container" >
+    <mat-form-field class="form-field">
+      <mat-label class="input-label">Name</mat-label>
+      <input matInput type="text" formControlName="userName">
+      <mat-error *ngIf="form.hasError('required', 'userName')">
+        User name is required
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form-field">
+      <mat-label class="input-label" >Surname</mat-label>
+      <input matInput type="text" formControlName="userSurname">
+      <mat-error *ngIf="form.hasError('required', 'userSurname')">
+        Surname is required
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form-field">
+      
+      <mat-label class="input-label" >Email</mat-label>
+      <input matInput formControlName="email"
+      placeholder="Ex. pat@example.com"
+      name="userEmail"
+      >
+      <mat-error *ngIf="form.hasError('required', 'email')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="form.hasError('email', 'email')">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form-field">
+      <mat-label class="input-label">Telephone</mat-label>
+      <span matPrefix>+38 &nbsp;</span>
+      <input matInput type="tel" maxlength="10" placeholder="(000)0000000" formControlName="userPhone">
+      <mat-error *ngIf="form.hasError('required', 'userPhone')">
+        Telephone is required
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="form-field">
+      <mat-label class="input-label">Comment</mat-label>
+      <textarea matInput formControlName="comment" name="comment"></textarea>
+    </mat-form-field>
+
+    <div class="btn-container" fxLayout="row" fxLayoutAlign="space-between center" >
+      <button mat-button class="shopping-cart-btn" [routerLink]="['/shopping-cart']">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+        <span>Shopping cart</span>
+      </button>
+      <button mat-button class="order-btn" (click)="onOrderClick()">
+        Order
+      </button>
+      
+    </div>
+  </form>
+
+  <mat-card class="loader" *ngIf="isLoadingResults">
+    <mat-progress-spinner
+      color="primary"
+      mode="indeterminate">
+    </mat-progress-spinner>
+  </mat-card>
+</div>
+

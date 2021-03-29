@@ -1,0 +1,14 @@
+<div class="dialog">
+  <div mat-dialog-title class="title">
+    <div [ngStyle]="{ color: title_color }">{{title}}</div>
+  </div>
+
+  <mat-dialog-content fxLayout="row" fxLayoutAlign="center" class="dialog-content">
+    <div class="mat-subheading-2" style="margin-bottom: 0">
+      {{message}}
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="end" class="btn-container">
+    <button fxFlex mat-stroked-button color="primary" (click)="onClose()">OK</button>
+  </mat-dialog-actions>
+</div>

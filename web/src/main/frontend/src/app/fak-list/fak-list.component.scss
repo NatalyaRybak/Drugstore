@@ -1,0 +1,53 @@
+.faks-wrapper {
+  padding: 50px 5%;
+  display: flex;
+  flex-direction: column;
+  .faks-title {
+    .loader{
+      left: 47%;
+    }
+    text-align: center;
+    hr {
+      width: 200px;
+    }
+  }
+  .faks-list {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .fak-item {
+      padding-top: 40px;
+      width: 350px;
+      .fak-title {
+        border-radius: 5px 5px 0px 0px;
+        padding: 10px 15px 5px 15px;
+        background-color: #b794f6;
+        text-align: center;
+      }
+      .fak-description {
+        background-color: #efe5fd;
+        padding: 15px 15px 10px 15px;
+        text-align: justify;
+      }
+      .fak-price {
+        background-color: #efe5fd;
+        border-radius: 0px 0px 5px 5px;
+        padding: 5px 15px 20px 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        * {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .faks-list {
+    padding-top: 0px !important
+  }
+}

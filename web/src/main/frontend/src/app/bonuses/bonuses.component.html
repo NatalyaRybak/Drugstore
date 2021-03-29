@@ -1,0 +1,30 @@
+<div class="dialog">
+    <div mat-dialog-title class="title">
+      <div>BONUSES</div>
+    </div>
+  
+    <mat-dialog-content fxLayout="row" fxLayoutAlign="center" class="dialog-content">
+      <form [formGroup]="form" class="form-container" style="width: 100%">
+        <div class="mat-subheading-2" style="margin-bottom: 0">
+          Currently you have {{userBonuses}} bonuses
+        </div>
+        <mat-form-field class="form-field" style="width: 100%">
+          <mat-label class="input-label">BONUSES</mat-label>
+          <input matInput formControlName="bonuses" type="number">
+          <mat-error *ngIf="form.hasError('min', 'bonuses')">
+            Bonuses can't be negative number
+          </mat-error>
+          <mat-error *ngIf="form.hasError('max', 'bonuses')">
+            You can't use more bonuses that you have
+          </mat-error>
+        </mat-form-field>
+        <br>
+      </form>
+    </mat-dialog-content>
+    <hr>
+    <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between" class="btn-container">
+      <button fxFlex mat-button class="cancel-btn" (click)="cancel()">CANCEL</button>
+      <button fxFlex mat-button class="save-btn" (click)="makeOrder()">SAVE</button>
+    </mat-dialog-actions>
+</div>
+  

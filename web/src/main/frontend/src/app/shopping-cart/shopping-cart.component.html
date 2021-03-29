@@ -1,0 +1,155 @@
+<div class="container" fxLayout="column">
+<div class="page-name-div" fxLayout="column" >
+    <div class="page-name" fxLayoutAlign="center" > SHOPPING CART</div>
+    <hr class="hr-top" fxLayoutAlign="center"/>
+</div>
+
+<div class="container-main" fxLayout="row"
+    fxLayoutAlign="center">
+
+    <ng-container>
+        <div *ngIf="itemsFromStorage.length != 0 || kitsFromStorage.length !=0; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+            <div class="cardList"  fxLayout="column" fxLayoutGap="32px">
+                <div *ngFor="let item of itemsFromStorage;">
+                <mat-card class="cardListItem">
+                    <div >
+                        <div class="good-card-photo" fxLayout="column" fxFlex="1 1 29%" >
+                            <img mat-card-sm-image src="{{item.object.photo}}">
+                        </div>
+                        <div fxLayout="column" fxFlex="1 1 69%">
+                            <div fxLayout="row" >
+                                <div fxFlex="1 1 90%" class="name">
+                                    {{item.object.name}}
+                                </div>
+                                <div fxLayout="column"  fxFlex="1 1 10%">
+                                    <button mat-icon-button (click)="onRemoveClick(item.object, item.numOrdered)">
+                                        <mat-icon class="icon" >delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="spacer" fxLayout="row"></div>
+
+                            <div fxLayout="row">
+                                <div fxFlex="1 1 15%" class="name">${{item.object.price}}
+                                </div>
+                            <div  fxLayout="row" fxLayoutAlign="center" fxFlex="1 1 70%" >
+                                <button mat-icon-button color=""  >
+                                    <mat-icon class="icon" (click)="onMinusClick(item.object)" >remove</mat-icon>
+                                </button>
+                                <div class="name">
+                                    {{item.numOrdered}}
+                                </div>
+
+                                <button mat-icon-button (click)=" onPlusClick(item.object)">
+                                    <mat-icon class="icon">add</mat-icon>
+                                </button>
+                            </div>
+                            <div class="total-per-good"  fxFlex="1 1 15%"class="name">
+                            ${{item.object.price*item.numOrdered | number:'1.1-2'}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+                </div>
+                <div *ngFor="let item of kitsFromStorage;">
+                    <mat-card class="cardListItem">
+                        <div >
+                            <div class="good-card-photo" fxLayout="column" fxFlex="1 1 29%" >
+                                <img mat-card-sm-image src="{{item.object.photo}}">
+                            </div>
+                            <div fxLayout="column" fxFlex="1 1 69%">
+                                <div fxLayout="row" >
+                                    <div fxFlex="1 1 90%" class="name">
+                                        {{item.object.title}}
+                                    </div>
+                                    <div fxLayout="column"  fxFlex="1 1 10%">
+                                        <button mat-icon-button (click)="onKitRemoveClick(item.object, item.numOrdered)">
+                                            <mat-icon class="icon" >delete</mat-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="spacer" fxLayout="row"></div>
+
+                                <div fxLayout="row">
+                                    <div fxFlex="1 1 15%" class="name">${{item.object.price}}
+                                    </div>
+                                <div  fxLayout="row" fxLayoutAlign="center" fxFlex="1 1 70%" >
+                                    <button mat-icon-button color=""  >
+                                        <mat-icon class="icon" (click)="onKitMinusClick(item.object)" >remove</mat-icon>
+                                    </button>
+                                    <div class="name">
+                                        {{item.numOrdered}}
+                                    </div>
+
+                                    <button mat-icon-button (click)=" onKitPlusClick(item.object)">
+                                        <mat-icon class="icon">add</mat-icon>
+                                    </button>
+                                </div>
+                                <div class="total-per-good"  fxFlex="1 1 15%"class="name">
+                                ${{item.object.price*item.numOrdered | number:'1.1-2'}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template #elseBlock>
+            <div class="cardList"  fxLayout="column" fxLayoutGap="32px">
+                <mat-card class="noOrders">
+                    <mat-label fxLayoutAlign="center">No Orders Yet!</mat-label>
+                </mat-card>
+
+            </div>
+        </ng-template>
+
+
+
+        <div class="order-summary" fxLayout="column">
+            <mat-card>
+                <mat-label fxLayoutAlign="center"><h3>Order Summary</h3></mat-label>
+                <div >
+                    <div fxLayout="row" class="subtotal">
+                        <mat-label fxLayoutAlign="flex-start" fxFlex="1 1 80%">SubTotal</mat-label>
+
+                            <mat-label fxFlex="1 1 30%" fxLayoutAlign="flex-end" > $
+                                {{subtotal | number:'1.1-2'}}
+                            </mat-label>
+
+                    </div>
+                    <div fxLayout="row" class="subtotal"  *ngIf="isLoggedIn()">
+                        <mat-label fxFlex="1 1 30%">Discount</mat-label>
+                        <div fxLayoutAlign="flex-start" fxFlex="1 1 50%" >
+                            <button class="bonuses-button" mat-raised-button (click)="openDialog()">
+                                Use bonuses
+                            </button>
+                        </div>
+                        <mat-label fxFlex="1 1 20%" fxLayoutAlign="flex-end">$ {{discount}}</mat-label>
+
+                    </div>
+                    <div fxLayout="column">
+                        <hr class="hr-total"/>
+                        <div fxLayout="row" class="total">
+                            <mat-label fxLayoutAlign="flex-start" fxFlex="1 1 80%">Total</mat-label>
+                            <mat-label fxFlex="1 1 30%" fxLayoutAlign="flex-end" > $
+                                {{total | number:'1.1-2'}}
+                            </mat-label>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="center">
+                        <button class="order-button"
+                        [disabled]="itemsFromStorage.length == 0 && kitsFromStorage.length == 0"
+                        mat-flat-button color="primary"
+                        [routerLink]="['/checkout']">
+                            ORDER
+                        </button>
+                    </div>
+                </div>
+
+            </mat-card>
+        </div>
+    </ng-container>
+</div>
+</div>

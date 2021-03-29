@@ -1,0 +1,53 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <p class="mat-display-1 shop-title" routerLink="/">
+        KMADrugStore
+    </p>
+    <span class="example-spacer"></span>
+    <div class="example-button-row">
+      <button mat-button routerLink="/signup">Sign Up</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container" fxLayout="row" fxLayoutAlign="center">
+  <div class="main" fxFlex="1 1 30%">
+    <div mat-dialog-title class="title" style="text-align: center">
+      <div>WELCOME BACK!</div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center" class="dialog-content">
+      <div class="items-container" fxFlex="1 1 100%">
+        <form [formGroup]="form" (ngSubmit)="login()" class="form-container" >
+          <mat-form-field class="form-field" style="width: 100%">
+            <mat-label class="input-label">USERNAME</mat-label>
+            <input formControlName="username" matInput type="text">
+          </mat-form-field>
+          <br>
+          <mat-form-field class="form-field" style="width: 100%">
+            <mat-label class="input-label">PASSWORD</mat-label>
+            <input type="password" formControlName="password" matInput>
+          </mat-form-field>
+
+          <div style="padding-top: 30px">
+            <span class="forgot-psw-btn" (click)="openDialog()">Forgot password</span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between" class="btn-container">
+            <button fxFlex mat-stroked-button color="primary" class="sign-in-btn">SIGN IN</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <mat-card class="loader" *ngIf="loading">
+    <mat-progress-spinner
+      color="primary"
+      mode="indeterminate">
+    </mat-progress-spinner>
+  </mat-card>
+
+</div>
+
+
+

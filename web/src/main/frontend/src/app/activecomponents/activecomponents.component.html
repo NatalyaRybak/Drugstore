@@ -1,0 +1,43 @@
+<div class="active-wrapper">
+  <div class="active-title">
+    <mat-card-title class="title">ACTIVE COMPONENTS</mat-card-title>
+    <hr />
+    <mat-spinner *ngIf = "isLoading" ></mat-spinner>
+  </div>
+  <div class="active-content" *ngIf = "!isLoading">
+        <div class="active-letters" >
+          <div class="active-letter" *ngFor=" let l of alpha" [routerLink]="['/active',l]">{{l}}</div>
+        </div>
+
+    <div class="active-lists">
+      <mat-list class="list" role="list">
+        <div *ngIf="hasLetter">
+          <mat-list-item role="listitem" *ngFor=" let c of list1" [routerLink]="['../../goods/active-component',c.id]">{{c.name}}</mat-list-item>
+        </div>
+        <div *ngIf="!hasLetter">
+          <mat-list-item role="listitem" *ngFor=" let c of list1" [routerLink]="['../goods/active-component',c.id]">{{c.name}}</mat-list-item>
+        </div>
+      </mat-list>
+      <mat-list class="list" role="list">
+        <div *ngIf="list2.length <= 0">
+          <mat-list-item role="listitem" >No such active components</mat-list-item>
+        </div>
+        <div *ngIf="hasLetter">
+        <mat-list-item role="listitem" *ngFor=" let c of list2" [routerLink]="['../../goods/active-component',c.id]" >{{c.name}}</mat-list-item>
+        </div>
+        <div *ngIf="!hasLetter">
+        <mat-list-item role="listitem" *ngFor=" let c of list2" [routerLink]="['../goods/active-component',c.id]" >{{c.name}}</mat-list-item>
+        </div>
+      </mat-list>
+      <mat-list class="list" role="list">
+        <div *ngIf="hasLetter">
+        <mat-list-item role="listitem" *ngFor=" let c of list3" [routerLink]="['../../goods/active-component',c.id]">{{c.name}}</mat-list-item>
+        </div>
+         <div *ngIf="!hasLetter">
+        <mat-list-item role="listitem" *ngFor=" let c of list3" [routerLink]="['../goods/active-component',c.id]">{{c.name}}</mat-list-item>
+        </div>
+      </mat-list>
+    </div>
+  </div>
+</div>
+

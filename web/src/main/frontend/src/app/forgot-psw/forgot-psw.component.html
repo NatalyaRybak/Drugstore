@@ -1,0 +1,31 @@
+<div class="dialog">
+  <div mat-dialog-title class="title" style="text-align: center">
+    <div>FORGOT YOUR PASSWORD?</div>
+  </div>
+
+  <mat-dialog-content fxLayout="row" fxLayoutAlign="center" class="dialog-content">
+    <div class="items-container" fxFlex="1 1 100%">
+      <h5 class="header">
+        Enter the e-mail address associated with your account.
+        Click submit to have a password reset link e-mailed to you.
+      </h5>
+
+      <form [formGroup]="form" class="form-container">
+        <mat-form-field class="form-field" style="width: 100%">
+          <mat-label class="input-label">EMAIL</mat-label>
+          <input formControlName="email" matInput type="text">
+        </mat-form-field>
+
+      </form>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between" class="btn-container">
+      <button mat-stroked-button color="warn" class="order-btn" (click)="onCancel()">
+        CANCEL
+      </button>
+      <button mat-flat-button color="primary" class="order-btn" (click)="onSubmit()">
+        SUBMIT
+      </button>
+  </mat-dialog-actions>
+</div>

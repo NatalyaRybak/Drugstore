@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <mat-toolbar-row class="toolbar">
+    <p class="mat-display-1 shop-title" routerLink="/employee">KMADrugStore</p>
+    <span class="example-spacer"></span>
+    <div class="example-button-row">
+      <img [matMenuTriggerFor]="menu" class="userIcon" src="../../assets/account.svg">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/employee/profile">My Account</button>
+        <button mat-menu-item (click)="logout()">Log out</button>
+      </mat-menu>
+      <!--<button mat-button (click)="logout()">Log out</button>-->
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

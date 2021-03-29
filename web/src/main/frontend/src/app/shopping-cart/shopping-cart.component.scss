@@ -1,0 +1,68 @@
+// .container-main{
+//   // max-height: 300px;
+// }
+.cardListItem {
+    min-width: 350px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+    max-height: 110px;
+    .good-photo{
+      margin-right: 1%;
+      max-width: 50px;
+    }
+}
+.noOrders{
+  min-width: 350px;
+  min-height: 200px;
+  margin-right: 50px;
+}
+.order-summary{
+  min-width: 350px;
+
+}
+.bonuses-button{
+  height:40px !important;
+  max-width:90px !important;
+  font-size:10px !important;
+  // white-space: pre-wrap;
+  
+}
+.order-button{
+  width:80% !important;
+}
+
+.hr-top{
+  size: 2px;
+  width: 20%;
+  fill: black;
+}
+
+.hr-total{
+  size: 2px;
+  width: 97%;
+  fill: black;
+}
+
+.page-name-div{
+  margin: 20px;
+}
+
+.page-name{
+  font-size: 18px;
+}
+
+.total-per-good{
+  font-size: 18px;
+  font-weight: bolder;
+}
+.name{
+  display:flex;
+  align-items:center;
+}
+.total{
+  margin:  15px 0;
+  font-size: 18px;
+}
+.subtotal{
+  margin:  10px 0;
+}

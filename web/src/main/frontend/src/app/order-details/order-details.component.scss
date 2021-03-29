@@ -1,0 +1,73 @@
+
+.title {
+  text-align: center;
+
+  .statuses {
+    width: 150px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+
+  .save-btn {
+    color: green;
+  }
+
+  .cancel-btn {
+    color: red;
+  }
+}
+
+.items-container {
+  width: 60%;
+
+  .list-item {
+    margin-bottom: 20px;
+  }
+}
+
+.general-info {
+  .gen-info-item {
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+
+  .spacer {
+    height: 40px;
+  }
+
+  .total {
+    font-weight: bold;
+  }
+
+  .gen-info-data {
+    text-align: right;
+  }
+}
+
+.items-container {
+//  min-width: 300px;
+//  margin-bottom: 10px;
+//
+//  .good-card-photo{
+//    margin-right: 2%;
+//  }
+//  //}
+  .order-line-sum {
+    text-align: right;
+    font-weight: bold;
+  }
+
+  .spacer{
+    height: 80%;
+  }
+//  .cardListItem:last-child {
+//    margin-right: 30px;
+//  }
+}
+
+

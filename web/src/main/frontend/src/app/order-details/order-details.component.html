@@ -1,0 +1,78 @@
+<div class="dialog">
+  <div mat-dialog-title class="title">
+    <div>ORDER #{{(order.id)}}</div>
+
+
+    <mat-select class="statuses" [(value)]="selected" *ngIf="isEmployee()">
+      <mat-option *ngFor="let status of statuses" [value]="status.id">
+        {{status.name}}
+      </mat-option>
+    </mat-select>
+
+    <div class="mat-subheading-2" *ngIf="!isEmployee()">
+      {{order.status.statusName || "&nbsp;"}}
+    </div>
+  </div>
+
+  <mat-dialog-content fxLayout="row" fxLayoutAlign="space-between" class="dialog-content">
+    <div class="items-container" fxFlex="1 1 55%">
+      <mat-card  class="list-item" *ngFor="let orderLine of (order ? order.orderLines : [])">
+
+        <div class="good-card-photo" fxLayout="column" fxFlex="1 1 29%">
+          <img mat-card-sm-image src="{{orderLine.good.photo}}">
+        </div>
+
+        <div fxLayout="column" fxFlex="1 1 69%">
+          <div fxLayout="row">
+            {{orderLine.good.name}} {{orderLine.good.dose}} {{orderLine.good.numInPack}}
+          </div>
+
+          <div class="spacer" fxLayout="row"></div>
+
+          <div fxLayout="row">
+            <div fxLayout="column" fxFlex="1 1 80%">
+              ${{orderLine.good.price}} x {{orderLine.amount}}
+            </div>
+
+            <div class="order-line-sum" fxFlex="1 1 20%">
+              ${{orderLine.sum | number:'1.1-2'}} 
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="general-info" fxFlex="1 1 40%">
+      <mat-card >
+        <div class="gen-info-item" fxLayout="row" fxLayoutAlign="space-between">
+          <span fxFlex>DATE</span>
+          <span class="gen-info-data" fxFlex="1 1 70%">{{parseDate(order.date)}}</span>
+        </div>
+
+        <div class="gen-info-item" fxLayout="row" fxLayoutAlign="space-between">
+          <span fxFlex>PHONE</span>
+          <span class="gen-info-data" fxFlex>{{order.phone}}</span>
+        </div>
+
+        <div class="gen-info-item" fxLayout="row" fxLayoutAlign="space-between">
+          <span fxFlex>COMMENT</span>
+          <span class="gen-info-data" fxFlex>{{order.comment}}</span>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="total" fxLayout="row" fxLayoutAlign="space-between">
+          <span fxFlex>TOTAL</span>
+          <span class="gen-info-data" fxFlex>{{order.total | number:'1.1-2'}}</span>
+        </div>
+      </mat-card>
+    </div>
+
+  </mat-dialog-content>
+  <hr>
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between" class="btn-container">
+    <button fxFlex  mat-button class="cancel-btn" (click)="onCloseCancel()">CANCEL</button>
+    <button fxFlex mat-button class="save-btn" (click)="onCloseSave()" *ngIf="isEmployee()">SAVE</button>
+    <button fxFlex mat-button class="save-btn" (click)="onReorderBtn()" *ngIf="!isEmployee()">REORDER</button>
+  </mat-dialog-actions>
+</div>

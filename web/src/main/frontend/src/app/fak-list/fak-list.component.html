@@ -1,0 +1,24 @@
+<div class="faks-wrapper">
+  <div class="faks-title">
+    <mat-card-title class="title">FIRST AID KITS</mat-card-title>
+    <hr>
+    <mat-spinner class = "loader" *ngIf = "isLoading"></mat-spinner>
+  </div>
+  <div class="faks-list" *ngIf = "!isLoading">
+    <div class="fak-item" *ngFor="let kit of kits">
+      <div class="fak-title" [routerLink]="['/kits',kit.id]">{{kit.title}}</div>
+      <div class="fak-description">
+        {{kit.description}}
+      </div>
+      <div class="fak-price">
+        <mat-card-subtitle>${{kit.price}}</mat-card-subtitle>
+        <mat-card-subtitle>
+          <button mat-icon-button (click)="onCartClick(kit)">
+            <mat-icon class="fas fa-shopping-cart">shopping_cart</mat-icon>
+          </button>
+
+        </mat-card-subtitle>
+      </div>
+    </div>
+  </div>
+</div>

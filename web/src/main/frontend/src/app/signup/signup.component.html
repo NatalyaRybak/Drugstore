@@ -1,0 +1,69 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <p class="mat-display-1 shop-title" routerLink="/">KMADrugStore</p>
+    <span class="example-spacer"></span>
+    <div class="example-button-row">
+      <button mat-button routerLink="/signin">Sign In</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container" fxLayout="row" fxLayoutAlign="center">
+  <div class="main" fxFlex="1 1 30%">
+    <div mat-dialog-title class="title" style="text-align: center">
+      <div>SIGN UP</div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center" class="dialog-content">
+      <div class="items-container" fxFlex="1 1 100%">
+        <form [formGroup]="form" (ngSubmit)="signup()" class="form-container" >
+          <mat-form-field class="form-field" style="width: 100%">
+            <mat-label class="input-label">NAME</mat-label>
+            <input formControlName="name" matInput type="text">
+            <mat-error *ngIf="form.hasError('required', 'name')">
+              Name is required
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="form-field" style="width: 100%">
+            <mat-label class="input-label">SURNAME</mat-label>
+            <input formControlName="surname" matInput type="text">
+            <mat-error *ngIf="form.hasError('required', 'surname')">
+              Surname is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field" style="width: 100%">
+            <mat-label class="input-label">EMAIL</mat-label>
+            <input formControlName="email" matInput type="text">
+            <mat-error *ngIf="form.hasError('required', 'email')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="form.hasError('email', 'email')">
+              Invalid email
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field" style="width: 100%">
+            <mat-label class="input-label">PASSWORD</mat-label>
+            <input formControlName="password" type="password" matInput>
+            <mat-error *ngIf="form.hasError('required', 'password')">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field" style="width: 100%" >
+            <mat-label class="input-label">CONFIRM PASSWORD</mat-label>
+            <input formControlName="confirmPass" type="password" matInput [errorStateMatcher]="matcher">
+            <mat-error *ngIf="form.hasError('notSame')">
+              Passwords do not match
+            </mat-error>
+          </mat-form-field>
+          <div fxLayout="row" fxLayoutAlign="space-between" class="btn-container">
+            <button fxFlex mat-stroked-button color="primary" class="sign-up-btn">SIGN UP</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

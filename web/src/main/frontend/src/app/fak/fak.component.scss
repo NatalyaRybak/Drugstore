@@ -1,0 +1,104 @@
+.loader{
+  left: 47%;
+}
+.fak-wrapper {
+  padding: 50px 5%;
+  display: flex;
+  flex-direction: column;
+  .fak-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    hr {
+      width: 190px;
+      margin-bottom: 40px;
+    }
+    .fak-name {
+      padding-top: 20px;
+      font-size: 34px;
+      font-weight: 500;
+      padding-bottom: 30px;
+    }
+    .fak-description {
+      @media (max-width: 425px) {
+        width: 310px;
+      }
+      width: 600px;
+    }
+  }
+  .fak-content {
+    padding-top: 40px;
+    .fak-item {
+      padding-top: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      @media (max-width: 425px) {
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        div:nth-child(2) {
+          display: flex;
+          flex-direction: column;
+          justify-content: inherit;
+          align-items: flex-end;
+          mat-card-title {
+            padding-right: 10px;
+          }
+        }
+        div hr {
+          width: 100%;
+        }
+      }
+      div {
+        width: 500px;
+        @media (max-width: 425px) {
+          width: 310px;
+        }
+        mat-card-title {
+          @media (max-width: 425px) {
+            padding-left: 10px;
+          }
+          padding-left: 50px;
+        }
+      }
+    }
+  }
+  .fak-footer {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    @media (max-width: 425px) {
+      .fak-helper {
+        display: none;
+      }
+    }
+    .fak-helper {
+      width: 165px;
+    }
+    .fak-price {
+      font-size: 30px;
+    }
+    .fak-quantity {
+      mat-form-field {
+        width: 50px;
+        padding-right: 20px;
+        input {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .fak-item {
+    div {
+      width: 300px !important;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<div class="categories-wrapper">
+  <div class="categories-title">
+    <mat-card-title class="title">CATEGORIES</mat-card-title>
+    <hr>
+    <mat-spinner class = "loader" *ngIf = "isLoading"></mat-spinner>
+
+  </div>
+  <div class="categories-list" *ngIf = "!isLoading">
+
+    <div class="category-item" *ngFor="let c of categories">
+<!--      <div class="category-title" [(ngModel)]="category" ngDefaultControl (click)="onCategorySelected()" routerLink="/goods">{{c.title}}</div>-->
+      <div class="category-title" (click)="onCategorySelected(c)" routerLink="/goods">{{c.title}}</div>
+    </div>
+  </div>
+</div>
