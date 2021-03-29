@@ -1,66 +1,54 @@
-<!--<mat-grid-list cols="2">-->
-<!--  <mat-grid-tile>-->
-<!--    <img mat-card-lg-image src="{{good.photo}}">-->
-<!--  </mat-grid-tile>-->
-<!--  <mat-grid-tile>-->
-<!--    <mat-card>-->
-<!--      <mat-card-header>-->
-<!--        <mat-card-title>{{good.name}}</mat-card-title>-->
-<!--      </mat-card-header>-->
-<!--      <mat-card-subtitle>-->
-<!--        Manufacturer : {{good.manufacturer}}-->
-<!--      </mat-card-subtitle>-->
-<!--    </mat-card>-->
-<!--  </mat-grid-tile>-->
-<!--</mat-grid-list>-->
-
-<div class="good-container" fxLayout="column" >
-  <div class="good-info" fxLayout="row" fxLayout.xs="column">
-    <div class="good-photo" fxLayout="column" fxLayout.xs="row" fxLayoutAlign="end center" fxFlex="1 1 50%">
-<!--      <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">-->
-      <img src="{{good.photo}}">
-<!--      img-->
-    </div>
-    <div class="good-details" fxLayout="column" fxLayout.xs="row" fxFlex="1 1 50%">
-      <p class="mat-h1">{{good.name}}</p>
-      <mat-divider></mat-divider>
-      <div fxLayout="row">
-        <p class="mat-h1" fxLayout="column" fxFlex="1 1 80%">${{good.price}}</p><p class="hint mat-small" fxLayout="column"fxFlex="1 1 20%">Available</p>
+<mat-spinner class = "loader" *ngIf = "isLoading"></mat-spinner>
+<div class="product-wrapper" *ngIf="good !== undefined &&  !isLoading">
+  <div>
+    <mat-card-title-group>
+      <img src="{{good?.photo}}"/>
+    </mat-card-title-group>
+    <mat-card-title-group class="block-info" fxLayout="column">
+      <div>
+        <mat-card-title>{{good?.name}}</mat-card-title>
+        <mat-divider></mat-divider>
+        <span>
+          <mat-card-title class="price">${{good?.price}}</mat-card-title>
+          <mat-card-subtitle class="available">Available</mat-card-subtitle>
+        </span>
       </div>
-      <p class="hint mat-small">Manufacturer</p>
-      <p class="item mat-h3">{{good.manufacturer}}</p>
-      <p class="hint mat-small">Active component</p>
-      <p class="item mat-h3"> {{good.activeComponents[0].name}}</p>
-      <p class="hint mat-small">Quantity</p>
-      <div fxLayout="row">
-        <input matInput type="number" formControlName="quantity" value="1" fxLayout="column" fxFlex="1 1 20%" fxLayoutGap="5%">
-        <button class="add-to-card-button" mat-raised-button fxLayout="column"fxFlex="1 1 30%">Add to card <mat-icon class="shopping-cart-icon">shopping_cart</mat-icon></button>
+      <div class="info">
+        <mat-card-subtitle class="name">Manufacturer</mat-card-subtitle>
+        <mat-card-title class="value">{{good?.manufacturer}}</mat-card-title>
       </div>
+      <div class="info">
+        <mat-card-subtitle class="name">Active component</mat-card-subtitle>
+        <mat-card-title class="value"> {{good?.activeComponents[0].name}}</mat-card-title>
+      </div>
+      <div class="info">
+        <mat-card-subtitle class="name">Quantity</mat-card-subtitle>
+        <span>
+          <div class="row">
+            <button mat-icon-button color=""  >
+              <mat-icon class="icon" (click)="onMinusClick()" >remove</mat-icon>
+          </button>
 
-    </div>
+          <input type="text" class="amount" [(ngModel)] = "value" name="val"/>
+          <button mat-icon-button (click)=" onPlusClick()">
+              <mat-icon class="icon">add</mat-icon>
+          </button>
+
+          </div>
+          <button mat-flat-button color="primary" (click)="onCartClick(good)">Add to cart</button>
+        </span>
+      </div>
+    </mat-card-title-group>
   </div>
-  <div class="good-description" fxLayout="row" fxLayout.xs="column">
-    <div class="info-buttons" fxLayout="column" fxLayout.xs="row" fxFlex="1 1 20%">
-      <button class="info-button" mat-raised-button>Description</button>
-      <button class="info-button" mat-raised-button>Indications</button>
-      <button class="info-button" mat-raised-button>Contraindications</button>
+  <div class="description">
+    <div class="description-column">
+      <button mat-flat-button color="primary">Description</button>
+      <!-- <button mat-flat-button color="primary">Indications</button>
+      <button mat-flat-button color="primary">Contrindications</button> -->
     </div>
-    <div class="info-area" fxLayout="column" fxLayout.xs="row" fxFlex="1 1 80%">
-      <mat-card>
-        <mat-card-title>
-          {{good.description}}
-        </mat-card-title>
-      </mat-card>
+    <div class="description-text">
+      {{good?.description}}
     </div>
   </div>
 </div>
 
-<!--<div class="good-card" fxLayout="row">-->
-<!--  <div class="good-card1" fxLayout="column" fxFlex="1 1 50%"></div>-->
-<!--  <div class="good-card2" fxLayout="column" fxFlex="1 1 50%"></div>-->
-<!--</div>-->
-
-<!--<div class="good-card" fxLayout="row">-->
-<!--  <div class="good-card2" fxLayout="column" fxFlex="1 1 20%"></div>-->
-<!--  <div class="good-card1" fxLayout="column" fxFlex="1 1 80%"></div>-->
-<!--</div>-->

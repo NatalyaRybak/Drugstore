@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "good")
 public class Good {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String manufacturer;
@@ -41,4 +41,8 @@ public class Good {
             joinColumns = @JoinColumn(name = "good_id"),
             inverseJoinColumns = @JoinColumn(name = "active_component_id"))
     Set<ActiveComponent> activeComponents;
+
+    public Good(final int id) {
+        this.id = id;
+    }
 }

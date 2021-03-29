@@ -1,15 +1,26 @@
-  .shopping-card-row, .example-icon, .shopping-cart-n {
-    padding: 0 14px;
-    margin-right: 8px;
-  }
-  .shop-title{
-    margin-bottom: 0;
-  }
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  .example-button-row button,
-  .example-button-row a {
-    margin-right: 8px;
-  }
+.shopping-card-row, .example-icon, .shopping-cart-n {
+  padding: 0 14px;
+  margin-right: 8px;
+}
 
+.shop-title {
+  margin-bottom: 0;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.userIcon {
+  width: 35px;
+  height: 35px;
+}
+
+.userIcon:hover {
+  cursor: pointer;
+}

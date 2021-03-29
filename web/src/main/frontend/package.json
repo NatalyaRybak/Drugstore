@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -23,7 +24,9 @@
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
     "hammerjs": "^2.0.8",
+    "ngx-webstorage-service": "^4.1.0",
     "rxjs": "~6.4.0",
+    "rxjs-compat": "^6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

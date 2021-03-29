@@ -1,4 +1,4 @@
 export interface ActiveComponent {
-  id:number;
-  name:string;
+  id: number;
+  name: string;
 }

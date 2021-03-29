@@ -1,49 +1,199 @@
-.list-container {
-  max-width: 100%;
-  //.left-column {
-  //  background-color: bisque;
-  //}
+.products-list-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 50px 40px 0px 40px;
+}
 
-  //.right-column {
-  //  min-width: 300px;
-    padding: 2%;
+.products-list-filter {
+  width: 310px;
+  display: flex;
+  flex-direction: column;
+  background-color: #cecaca;
+  //background-color: #d0d0ca;
+  padding: 20px;
+  border-radius: 5px;
+  height: 650px;
+  .title {
+    text-align: center;
+  }
+}
 
-    .cardListItem {
-      min-width: 300px;
-      margin-bottom: 10px;
+.product-price .available {
+  padding-left: 12px;
+}
 
-      .good-card-photo{
-        margin-right: 2%;
+.product-price div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  mat-form-field {
+    width: 70px;
+  }
+}
+
+.products-list-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.products-list {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .titles {
+    margin-bottom: 10px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .product-card {
+      width: 330px;
+      display: flex;
+      margin: 10px 30px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: center;
+      background-color: #c1e1ff;
+      //background-color: #d0d0ca;
+      img {
+        width: 100px;
+        padding: 0;
+        margin: 0;
       }
-    //}
-    .spacer{
-      height: 80%;
-    }
-    .cardListItem:last-child {
-      margin-right: 30px;
+      mat-card-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 200px;
+        margin-top: -20px;
+        padding-bottom: 10px;
+        div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          * {
+            font-size: 20px;
+            margin: 0;
+          }
+        }
+      }
     }
   }
 }
-//mat-grid-list{
-//  background-color: #dce0ff;
-//
-//}
-//.example-spacer {
-//  flex: 1 1 auto;
-//}
-//.img-card{
-//  display: flex;
-//  width: 30%;
-//  height: auto;
-//}
-//.about-card{
-//  width: 60%;
-//  height: auto;
-//}
-//.title-card{
-//  font-size: 12px;
-//}
-//
-//.example-header-image {
-//  background-size: cover;
-//}
+
+
+@media screen and (max-width: 768px) {
+  .product-card {
+    width: 325px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .products-list-wrapper {
+    padding: 50px 10px 0px 10px;
+  }
+  .products-list {
+    padding: 0px;
+    .list {
+      .product-card {
+        width: 260px;
+        img {
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .product-card {
+    width: 280px !important;
+  }
+
+  .products-list-wrapper {
+    margin: 0;
+    width: 390px;
+  }
+
+  .products-list-filter {
+
+    position: absolute;
+    top: 33px;
+    right: 35px;
+    z-index: 3;
+  }
+  .bg {
+
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 350%;
+    background-color: #c8c8c8;
+    opacity: 0.3;
+  }
+
+  .modal-icon {
+    font-size: 30px;
+    position: absolute;
+    top: 38px;
+    right: 48px;
+  }
+
+}
+
+
+@media screen and (max-width: 375px) {
+  .products-list-wrapper {
+    margin: 0;
+    width: 375px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .products-list-filter {
+    right: 15px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .product-card {
+    width: 260px !important;
+  }
+  .list {
+    width: 320px;
+  }
+  .modal-icon {
+    right: 20px;
+  }
+  .products-list-wrapper {
+    margin: 0;
+    width: 320px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .products-list-filter {
+    right: 10px;
+    width: 290px !important;
+    padding: 10px 5px 10px 5px;
+  }
+  .bg {
+    right: 0px;
+    width: 320px !important;
+  }
+}
+
+@media screen and (min-width: 426px) {
+  .modal-icon {
+    display: none;
+  }
+  .bg {
+    display: none;
+  }
+}

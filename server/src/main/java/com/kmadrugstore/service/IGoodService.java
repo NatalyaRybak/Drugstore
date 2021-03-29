@@ -1,24 +1,24 @@
 package com.kmadrugstore.service;
 
-import com.kmadrugstore.entity.ActiveComponent;
-import com.kmadrugstore.entity.Category;
-import com.kmadrugstore.entity.Good;
-import com.kmadrugstore.entity.ShortGood;
+import com.kmadrugstore.dto.DetailedOrderDTO;
+import com.kmadrugstore.dto.GoodDTO;
+import com.kmadrugstore.dto.KitDTO;
+import com.kmadrugstore.dto.OrderLineDTO;
+import com.kmadrugstore.entity.*;
 import com.kmadrugstore.utils.GoodFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 public interface IGoodService {
 
     Page<Good> findAllGoods(final GoodFilter filter, final Pageable pageable);
 
-    Optional<Good> findGoodById(final int id);
+    Good findGoodById(final int id);
 
-    Optional<ShortGood> findShortGoodById(final int id);
+    ShortGood findShortGoodById(final int id);
 
     List<String> findDistinctManufacturers();
 
@@ -31,4 +31,26 @@ public interface IGoodService {
     BigDecimal findMinPrice();
 
     BigDecimal findMaxPrice();
+
+    BigDecimal getPriceById(final int id);
+
+    void increaseBy(int goodId, int n);
+
+    void decreaseBy(int goodId, int n);
+
+    Integer getAvailableQuantity(final Good good);
+
+    Page<KitDTO> findAllKits(final Pageable pageable);
+
+    KitDTO kitToKitDTO(final Kit kit);
+
+    List<KitLine> getGoodsFromKit(int id);
+
+    GoodDTO goodToGoodDTO(Good good);
+
+    Kit findKitById(final int id);
+
+    KitDTO doFindKitById(final int id);
+
+    List<OrderLineDTO> findAllGoodsInKits(final List<Integer> ids);
 }
